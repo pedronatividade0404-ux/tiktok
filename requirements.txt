@@ -1,5 +1,4 @@
-Flask>=3.1,<4
-requests>=2.32,<3
-cryptography>=45,<47
-
-python-dotenv>=1.0,<2
+Flask
+gunicorn
+python-dotenv
+requests
