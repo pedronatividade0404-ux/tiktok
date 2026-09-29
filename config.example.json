@@ -1,0 +1,17 @@
+{
+  "tiktok_client_key": "SEU_CLIENT_KEY",
+  "tiktok_client_secret": "SEU_CLIENT_SECRET",
+  "tiktok_redirect_uri": "http://127.0.0.1:8787/auth/callback/",
+  "tiktok_access_token": "",
+  "tiktok_refresh_token": "",
+  "tiktok_expires_at": 0,
+  "tiktok_open_id": "",
+  "tiktok_display_name": "",
+  "tiktok_avatar_url": "",
+  "video": "",
+  "title": "TikTok LIVE 24/7",
+  "loop": true,
+  "auto_restart": false,
+  "server_url": "",
+  "stream_key": ""
+}
