@@ -123,7 +123,9 @@ def require_user():
 def oauth_url():
     state = secrets.token_urlsafe(32)
     verifier = secrets.token_urlsafe(64)
-    challenge = hashlib.sha256(verifier.encode()).hexdigest()
+    challenge = base64.urlsafe_b64encode(
+        hashlib.sha256(verifier.encode()).digest()
+    ).rstrip(b"=").decode()
     db().execute("INSERT INTO oauth_states(state, code_verifier, created_at) VALUES(?,?,?)", (state, verifier, int(time.time())))
     db().commit()
     params = {
@@ -318,7 +320,7 @@ def auth_tiktok():
     return redirect(oauth_url())
 
 
-@app.route("/auth/callback/")
+@app.route("/auth/tiktok/callback")
 def auth_callback():
     state = request.args.get("state", "")
     row = db().execute("SELECT * FROM oauth_states WHERE state=?", (state,)).fetchone()
